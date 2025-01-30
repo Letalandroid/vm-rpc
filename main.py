@@ -214,25 +214,25 @@ while True:
             STATUS = "Virtualizing " + displayName # Set status
             vmcount = None # Only 1 VM, so set vmcount to none
             HYPERVISOR = "Hyper-V"
-    if "virtualbox" in hypervisors:
-        virtualbox.updateOutput()
-        if virtualbox.isRunning() == False:
-            # No VMs running, clear rich presence and set time to update on next change
-            clear()
-        elif virtualbox.runCount() > 1:
-            running = True
-            # Too many VMs to fit in field
-            STATUS = "Running VMs"
-            # Get VM count so we can show how many are running
-            vmcount = [virtualbox.runCount(), virtualbox.runCount()]
-            HYPERVISOR = "VirtualBox"
-        else:
-            running = True
-            # Init variable
-            displayName = virtualbox.getRunningGuestName(0)
-            STATUS = "Virtualizing " + displayName # Set status
-            vmcount = None # Only 1 VM, so set vmcount to None
-            HYPERVISOR = "VirtualBox"
+    # if "virtualbox" in hypervisors:
+    #     virtualbox.updateOutput()
+    #     if virtualbox.isRunning() == False:
+    #         # No VMs running, clear rich presence and set time to update on next change
+    #         clear()
+    #     elif virtualbox.runCount() > 1:
+    #         running = True
+    #         # Too many VMs to fit in field
+    #         STATUS = "Running VMs"
+    #         # Get VM count so we can show how many are running
+    #         vmcount = [virtualbox.runCount(), virtualbox.runCount()]
+    #         HYPERVISOR = "VirtualBox"
+    #     else:
+    #         running = True
+    #         # Init variable
+    #         displayName = virtualbox.getRunningGuestName(0)
+    #         STATUS = "Virtualizing " + displayName # Set status
+    #         vmcount = None # Only 1 VM, so set vmcount to None
+    #         HYPERVISOR = "VirtualBox"
     if STATUS != LASTSTATUS and STATUS != None: # To prevent spamming Discord, only update when something changes
         print("Rich presence updated locally; new rich presence is: " + STATUS + " (using " + HYPERVISOR + ")") # Report of status change, before ratelimit
         if virtualbox.isRunning() and virtualbox.runCount() == 1:
