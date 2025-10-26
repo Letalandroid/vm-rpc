@@ -16,6 +16,11 @@ Discord RPC for VMs.
 4. Rename `sample-settings.json` to `settings.json` and configure your settings as neccessary.
 5. Run `main.py`. Hyper-V support requires adminstrator privileges.
 
+#### Especific:
+```cmd
+pyinstaller --onefile --noconsole tray.py
+```
+
 **Note: If you get `Access is denied`, restart Discord.**
 
 Note: Discord has a 15 second ratelimit in sending Rich Presence updates.
